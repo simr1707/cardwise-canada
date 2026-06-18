@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Portfolio from "./Portfolio";
 
 const cards = [
   {
@@ -334,7 +335,7 @@ function scoreCard(card, answers) {
 }
 
 export default function App() {
-  const [view, setView] = useState("home");
+  const [view, setView] = useState("portfolio");
   const [selectedCard, setSelectedCard] = useState(null);
   const [quizStep, setQuizStep] = useState(0);
   const [quizAnswers, setQuizAnswers] = useState({});
@@ -436,6 +437,10 @@ Rounding out your top three, the ${third.name} is worth keeping on your radar ‚Ä
     );
   };
 
+  if (view === "portfolio") {
+    return <Portfolio onLaunchCardwise={() => setView("home")} />;
+  }
+
   return (
     <div style={{ fontFamily: "'Playfair Display', Georgia, serif", background: "#0A0A0F", minHeight: "100vh", color: "#F0EDE8" }}>
       <style>{`
@@ -479,6 +484,9 @@ Rounding out your top three, the ${third.name} is worth keeping on your radar ‚Ä
           <span className="dm" style={{ fontSize: 11, color: "#888", borderLeft: "1px solid #333", paddingLeft: 10, marginLeft: 2 }}>Canada</span>
         </div>
         <div style={{ display: "flex", gap: 4 }}>
+          <button className="nav-btn" onClick={() => setView("portfolio")} style={{ color: "#00f2fe", fontWeight: "bold" }}>
+            ‚Üê Portfolio
+          </button>
           {["home", "compare", "quiz"].map((v) => (
             <button key={v} className={`nav-btn ${view === v || (view === "results" && v === "quiz") ? "active" : ""}`} onClick={() => { setView(v); if (v === "quiz") { setQuizStep(0); setQuizAnswers({}); setRecommendations([]); setAiExplanation(""); } }}>
               {v === "home" ? "All Cards" : v === "compare" ? "Compare" : "Find My Card"}
