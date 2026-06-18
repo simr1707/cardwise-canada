@@ -554,7 +554,7 @@ export default function Portfolio({ onLaunchCardwise }) {
           </div>
           <div className="footer-links">
             <a href="mailto:simr1707@gmail.com" title="Email"><i className="fa-solid fa-envelope"></i></a>
-            <a href="https://linkedin.com/in/simran-singh-58079a2bb" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i className="fa-brands fa-linkedin"></i></a>
+            <a href="https://www.linkedin.com/in/singhautomations" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i className="fa-brands fa-linkedin"></i></a>
             <a href="https://github.com/simr1707" target="_blank" rel="noopener noreferrer" title="GitHub"><i className="fa-brands fa-github"></i></a>
           </div>
         </div>
