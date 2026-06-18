@@ -85,7 +85,7 @@ export default function Portfolio({ onLaunchCardwise }) {
       <nav className="nav">
         <div className="nav-inner">
           <a href="#home" className="nav-logo" onClick={closeMenu}>
-            SIMRAN<span>.AI</span>
+            Simran Singh
           </a>
           <ul className={`nav-menu ${isMenuOpen ? 'open' : ''}`}>
             <li>
