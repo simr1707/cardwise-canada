@@ -127,7 +127,7 @@ export default function Portfolio({ onLaunchCardwise }) {
           Workflow Optimization & AI Agents
         </span>
         <h1 className={`hero-title ${isMounted ? 'visible' : ''}`}>
-          I Automate Repetitive Workflows Using AI & Low-Code
+          I Automate Repetitive Workflows Using <span className="hero-gradient-highlight">AI & Low-Code</span>
         </h1>
         <p className={`hero-sub ${isMounted ? 'visible' : ''}`}>
           Hi, I'm <strong>Simran Singh</strong>. I build custom, 24/7 autonomous agents and API integrations that eliminate manual labor, streamline operations, and boost engagement.
@@ -457,7 +457,7 @@ export default function Portfolio({ onLaunchCardwise }) {
                 
                 <div className="tl-item anim-fade">
                   <div className="tl-dot"></div>
-                  <span className="tl-date">Jan 2026 - Present</span>
+                  <span className="tl-date">Jan 2026 - Present <span className="live-pulse" title="Active Role"></span></span>
                   <h3 className="tl-title">Freelance AI Automation Developer</h3>
                   <div className="tl-org">Independent Contractor | Bonnyville, AB</div>
                   <ul className="tl-list">
@@ -469,7 +469,7 @@ export default function Portfolio({ onLaunchCardwise }) {
 
                 <div className="tl-item anim-fade">
                   <div className="tl-dot"></div>
-                  <span className="tl-date">Dec 2023 - Present</span>
+                  <span className="tl-date">Dec 2023 - Present <span className="live-pulse" title="Active Role"></span></span>
                   <h3 className="tl-title">Operations & Logistics Specialist (Class 1 Driver)</h3>
                   <div className="tl-org">Grimshaw Trucking LP | Bonnyville, AB</div>
                   <ul className="tl-list">

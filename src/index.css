@@ -116,8 +116,28 @@ ul { list-style: none; }
   font-size: 0.8rem;
   font-weight: 400;
   color: rgba(245, 245, 247, 0.8);
+  position: relative;
   transition: color 0.25s ease;
   letter-spacing: 0;
+  padding: 4px 0;
+}
+
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-menu a:hover::after, .nav-menu a.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 .nav-menu a:hover, .nav-menu a.active {
@@ -157,7 +177,7 @@ ul { list-style: none; }
   align-items: center;
   text-align: center;
   padding: 120px 2rem 80px;
-  background: var(--dark-bg);
+  background: radial-gradient(circle at 50% 30%, rgba(41, 151, 255, 0.12) 0%, rgba(130, 80, 255, 0.05) 35%, var(--dark-bg) 65%);
   overflow: hidden;
 }
 
@@ -209,12 +229,14 @@ ul { list-style: none; }
 
 .hero-title {
   font-size: clamp(2.8rem, 7vw, 5.5rem);
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.05;
   margin-bottom: 1.5rem;
   max-width: 900px;
-  color: var(--dark-text);
+  background: linear-gradient(to bottom, #ffffff 40%, #a1a1aa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 1s ease 0.2s, transform 1s ease 0.2s;
@@ -223,6 +245,13 @@ ul { list-style: none; }
 .hero-title.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.hero-gradient-highlight {
+  background: linear-gradient(135deg, #2997ff 0%, #a25df5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
 }
 
 .hero-sub {
@@ -935,4 +964,108 @@ ul { list-style: none; }
   .btn-filled, .btn-ghost { width: 100%; justify-content: center; }
   .contact-links { flex-direction: column; align-items: center; gap: 1.5rem; }
   .footer-inner { flex-direction: column; gap: 1rem; text-align: center; }
+}
+
+/* ============================================
+   UX AUDIT IMPROVEMENTS (APPLE-INSPIRED POLISH)
+   ============================================ */
+
+/* 1. Light-Theme Card Contrast & Visibility Fixes */
+.section-light .method-card {
+  background: var(--light-surface);
+  border: 1px solid #e5e5ea;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
+}
+
+.section-light .method-card:hover {
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.05);
+}
+
+.section-light .method-card h3 {
+  color: var(--light-text);
+}
+
+.section-light .method-card p {
+  color: var(--light-text-secondary);
+}
+
+.section-light .project-visual {
+  background: #f5f5f7;
+  border: 1px solid #e5e5ea;
+}
+
+.section-light .project-cta-card {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
+}
+
+.section-light .project-cta-card:hover {
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.06);
+}
+
+.section-light .edu-card {
+  background: var(--light-surface);
+  border: 1px solid #e5e5ea;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+}
+
+.section-light .edu-card-title {
+  border-bottom: 1px solid #e5e5ea;
+}
+
+/* 2. Micro-Animations for Data Flow Arrows */
+.pf-arrow {
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: inline-block;
+  animation: pulse-arrow 2s infinite ease-in-out;
+}
+
+@keyframes pulse-arrow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(0.9) translateX(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1) translateX(3px);
+    color: #8250ff;
+  }
+}
+
+/* 3. Pulsing Dot for Active Timeline Roles */
+.live-pulse {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background-color: #34c759;
+  border-radius: 50%;
+  margin-left: 8px;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+}
+
+.live-pulse::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #34c759;
+  animation: pulse-ring 2s infinite ease-in-out;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.75;
+  }
+  100% {
+    transform: scale(3.2);
+    opacity: 0;
+  }
 }
