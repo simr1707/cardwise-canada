@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import headshot from './headshot.png';
+import headshot from './headshot.jpg';
 
 export default function Portfolio({ onLaunchCardwise }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

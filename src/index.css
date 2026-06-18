@@ -173,11 +173,11 @@ ul { list-style: none; }
 }
 
 .hero-photo {
-  width: 260px;
+  width: 320px;
   height: 320px;
   border-radius: 24px;
   object-fit: cover;
-  object-position: center 10%;
+  object-position: center;
   margin-bottom: 2rem;
   border: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
